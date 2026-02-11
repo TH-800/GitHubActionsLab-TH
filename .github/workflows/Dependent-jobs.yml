@@ -19,7 +19,8 @@ jobs:
     steps:
       - name: Simulation of a test
         run: echo Testing application
-
+      - name: List files
+        run: ls -R
       - name: Maven Java JUnit test all classes
         run: mvn test
 
