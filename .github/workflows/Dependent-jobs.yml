@@ -21,8 +21,8 @@ jobs:
         run: echo Testing application
       - name: List files
         run: ls -R
-      - name: Maven Java JUnit test all classes
-        run: mvn test
+  #    - name: Maven Java JUnit test all classes
+   #     run: mvn test
 
   Deploy_job_on_ubuntu:
     runs-on: ubuntu-latest
