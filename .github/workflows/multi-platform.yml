@@ -1,0 +1,45 @@
+name: multi-platform
+
+on: push
+
+jobs:
+  job_on_ubuntu:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Print OS info
+      run: uname -a
+
+    - name: Make empty txt file
+      run: touch systeminfo.txt
+
+    - name: Write system info to txt file
+      run: uname -a >> systeminfo.txt
+
+  job_on_windows:
+    name: A Windows job
+    runs-on: windows-latest
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4 
+
+    - name: Print OS info
+      run: systeminfo
+
+  job_on_macos:
+    name: A job on Mac to view system info
+    runs-on: macos-latest
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Print OS info
+      run: uname -a    
+
+    - name: Make empty txt file
+      run: touch systeminfo.txt
+
+    - name: Write system info to txt file
+      run: uname -a >> systeminfo.txt
