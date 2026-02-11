@@ -27,10 +27,12 @@ jobs:
 
     - name: Print OS info
       run: systeminfo
-    - name: make txt file
+    - name: Make txt file
+      shell: cmd
       run: type nul > systeminfo.txt
 
-    - name: append system info to txt file
+    - name: Append system info to txt file
+      shell: cmd
       run: systeminfo >> systeminfo.txt
 
 
