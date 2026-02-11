@@ -13,50 +13,27 @@ jobs:
       - name: Sleep
         run: sleep 5
 
-
   Test_job_on_ubuntu:
     runs-on: ubuntu-latest
     needs: Build_job_on_ubuntu
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-
       - name: Simulation of a test
         run: echo Testing application
 
-      - name: List files
-        run: ls -R
-
-      - name: Set up Java
-        uses: actions/setup-java@v4
-        with:
-          distribution: 'temurin'
-          java-version: '17'
-
       - name: Maven Java JUnit test all classes
         run: mvn test
-
 
   Deploy_job_on_ubuntu:
     runs-on: ubuntu-latest
     needs: Test_job_on_ubuntu
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-
       - name: Simulation of application deployment
         run: echo Deploying application
 
-      - name: Set up Java
-        uses: actions/setup-java@v4
-        with:
-          distribution: 'temurin'
-          java-version: '17'
-
-      - name: Compile Java files manually (if needed)
-        run: |
-          javac TDDCalculatorTest.java || true
-          javac TestCalculator.java || true
+      - name: Maven Java application compile
+        run: javac TDDCalculatorTest.java
+      - name: Maven Java application compile
+        run: javac TestCalculator.java
 
       - name: Deploying Java file
         run: echo I got no clue how to deploy it
