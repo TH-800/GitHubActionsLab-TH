@@ -58,7 +58,7 @@ jobs:
         run: echo Deploying application
 
       - name: Compile all Java files
-        run: javac *.java
-
+        run: mvn clean package
+        
       - name: Deploying Java file
         run: echo I got no clue how to deploy it
