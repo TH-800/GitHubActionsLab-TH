@@ -27,6 +27,12 @@ jobs:
 
     - name: Print OS info
       run: systeminfo
+    - name: make txt file
+      run: type nul > systeminfo.txt
+
+    - name: append system info to txt file
+      run: systeminfo >> systeminfo.txt
+
 
   job_on_macos:
     name: A job on Mac to view system info
