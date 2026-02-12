@@ -17,6 +17,8 @@ jobs:
 
     - name: Write system info to txt file
       run: uname -a >> systeminfo.txt
+    - name: print txt file contents
+      run: cat systeminfo.txt
 
   job_on_windows:
     name: A Windows job
@@ -34,6 +36,9 @@ jobs:
     - name: Append system info to txt file
       shell: cmd
       run: systeminfo >> systeminfo.txt
+    - name: print txt file contents
+      shell: cmd
+      run: type systeminfo.txt
 
 
   job_on_macos:
@@ -51,3 +56,5 @@ jobs:
 
     - name: Write system info to txt file
       run: uname -a >> systeminfo.txt
+    - name: print txt file contents
+      run: cat systeminfo.txt
